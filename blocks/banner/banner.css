@@ -1,0 +1,240 @@
+.banner{
+    position: relative;
+    overflow: hidden; 
+}
+
+.bannerChild{
+    color: white;
+    padding: 60px 40px 60px 40px;
+}
+
+.banner picture{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+}
+
+.banner img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.dateTimeUser {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.time,
+.user {
+    margin-left: 10px;
+}
+
+.date picture img,
+.time picture img,
+.user picture img {
+    height: 16px;
+}
+
+.teaserType {
+    font-size: 12px;
+}
+
+.teaserTitle {
+    font-size: 24px;
+}
+
+.description {
+    font-size: 12px;
+}
+
+.description p {
+    margin: 0;
+}
+
+.button {
+    margin-top: 15px;
+    background-color: #2885e0;
+    font-size: 12px;
+    border-radius: 14px;
+    padding: 8px 16px;
+    width: auto;
+    display: inline-block;
+}
+
+a.buttonLink {
+    color: white;
+    text-decoration: none;
+}
+
+.buttonDescription {
+    font-size: 12px;
+}
+
+/* Increase font size for tablets */
+@media (min-width: 790px) {
+.banner{
+    position: relative;
+    overflow: hidden; 
+}
+
+.bannerChild{
+    color: white;
+    padding: 60px 40px 60px 40px;
+}
+
+.banner picture{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+}
+
+.banner img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.dateTimeUser {
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.time,
+.user {
+    margin-left: 20px;
+}
+
+.date picture img,
+.time picture img,
+.user picture img {
+    height: 20px;
+}
+
+.teaserType {
+    font-size: 12px;
+}
+
+.teaserTitle {
+    font-size: 30px;
+}
+
+.description {
+    font-size: 12px;
+}
+
+.description p {
+    margin: 0px;
+}
+
+.button {
+    margin-top: 10px;
+    background-color: #2885e0;
+    font-size: 12px;
+    border-radius: 14px;
+    padding: 6px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.buttonLink {
+    color: white;
+    text-decoration: none;
+}
+
+.buttonDescription {
+    font-size: 12px;
+}    
+}
+  
+/* Larger font size for desktop screens */
+@media (min-width: 1024px) {
+.banner{
+    position: relative;
+    overflow: hidden; 
+}
+
+.bannerChild{
+    color: white;
+    padding: 60px 40px 60px 40px;
+}
+
+.banner picture{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: cover;
+}
+
+.banner img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.dateTimeUser{
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.time,
+.user {
+    margin-left: 20px;
+}
+
+.date picture img,
+.time picture img,
+.user picture img{
+    height: 20px;
+}
+
+.teaserType{
+    font-size: 14px;
+}
+
+.teaserTitle{
+    font-size: 36px;
+}
+
+.description{
+    font-size: 14px;
+}
+
+.description p{
+    margin: 0px;
+}
+
+.button{
+    margin-top: 10px;
+    background-color: #2885e0;
+    font-size: 14px;
+    border-radius: 14px;
+    padding: 6px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.buttonLink{
+    color:white;
+    text-decoration: none;
+}
+
+.buttonDescription{
+    font-size: 14px;
+}    
+}
