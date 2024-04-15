@@ -257,20 +257,8 @@ header nav .nav-sections ul > li > ul > li {
     width: 200px;
     margin-top: 12px;
     padding: 1em;
-    background-color: var(--highlight-background-color);
+    background-color: var(--background-color);
     white-space: initial;
-  }
-
-  header nav .nav-sections > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 8px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;    
-    border-bottom: 8px solid var(--highlight-background-color);
   }
 
   header nav .nav-sections > ul > li > ul > li {
