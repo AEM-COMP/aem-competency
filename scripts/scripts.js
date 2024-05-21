@@ -188,6 +188,22 @@ function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
 
+/**
+ * Fetch filtered search results for bigbets
+ * @returns List of search results
+ */
+export async function fetchSearch() {
+  window.searchData = window.searchData || {};
+  if (Object.keys(window.searchData).length === 0) {
+    const path = '/query-index.json?limit=3&offset=0';
+
+    const resp = await fetch(path);
+    window.searchData = JSON.parse(await resp.text()).data;
+  }
+
+  return window.searchData;
+}
+
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
