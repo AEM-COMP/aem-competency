@@ -15,6 +15,7 @@
   --primary-dark-color: #0658BC;
   --light-color: #eee;
   --dark-color: #ccc;
+  --text-color-red: red;
   --text-color: black;
   --body-text-color: #fff;
   --background-color: #002651;
@@ -53,6 +54,7 @@
   --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
   --body-font-size-xxs: 14px;
+  --body-font-size-xxxs: 12px;
 
   /* heading sizes */
   --heading-font-size-xxl: 2rem;

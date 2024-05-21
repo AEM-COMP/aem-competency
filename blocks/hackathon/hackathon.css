@@ -1,0 +1,134 @@
+main .section.hackathon-container{
+    padding-bottom: 130px;
+}
+
+.hackathon {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.hackathon-text-col p{
+    margin: 0;
+}
+
+.hackathon-text-col p:first-child {
+    color: var(--text-color-red);
+}
+
+
+.hackathon-text-col a.button:any-link, button{
+    padding : 4px 16px;
+    margin-bottom : 0;
+}
+
+.hackathon-text-col img{
+    width: 15px;
+}
+
+.hackathon-text-col p:nth-child(2) {
+    font-size: 25px;
+}
+
+.hackathon-text-col p:last-child {
+    font-size: var(--body-font-size-xxxs);
+}
+
+.hackathon-text-col p:nth-child(3) {
+    margin-top: 15px;
+}
+
+.hackathon-text-col p:nth-child(5), .hackathon-text-col p:nth-child(6){
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.hackathon-text-col p:nth-child(5) img, .hackathon-text-col p:nth-child(6) img{
+    margin-right: 5px;
+}
+
+.hackathon-text-col p:nth-child(5) strong, .hackathon-text-col p:nth-child(6) strong{
+    font-size: var(--body-font-size-xxxs);
+    margin-right: 15px;
+}
+
+.hackathon-text-col p:nth-child(7) img{
+    margin-top: 15px;
+    font-size: var(--body-font-size-xxxs);
+    margin-right: 5px;
+}
+
+.hackathon-text-col p:nth-child(7) strong{
+    font-size: var(--body-font-size-xxxs);
+}
+
+.button-container {
+    margin-top: 15px;
+}
+
+.hackathon-text-col {
+    font-size: var(--body-font-size-xxs);
+    padding: 20px;
+    margin-top: 0;
+}
+
+.hackathon > div > .hackathon-img-col {
+    padding: 20px;
+    order: 1;
+}
+
+.hackathon > div {
+  z-index : 1;
+  display: flex;
+  flex-flow: column;
+  color: var(--text-color);
+}
+
+.hackathon-container picture{
+    z-index : -1;
+}
+
+.hackathon > div > div {
+  order: 1;
+}
+
+
+.hackathon > div > .hackathon-img-col img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  width: 75%;
+}
+
+@media (width >= 1280px) {
+    .hackathon > div {
+        align-items: center;
+        flex-flow: unset;
+        gap: 32px;
+    }
+
+
+    .hackathon > div > .hackathon-img-col img {
+         margin-top: -50px;
+         margin-left: 40%;
+         width : 60%;
+    }
+
+    .hackathon-text-col p:nth-child(5), .hackathon-text-col p:nth-child(6), .hackathon-text-col p:nth-child(7){
+        display: inline-block;
+    }
+
+    .hackathon-text-col p:nth-child(5) img, .hackathon-text-col p:nth-child(6) img, .hackathon-text-col p:nth-child(7) img{
+        margin-right: 5px;
+    }
+
+    .hackathon-text-col p:nth-child(5) strong, .hackathon-text-col p:nth-child(6) strong, .hackathon-text-col p:nth-child(7) strong{
+        margin-right: 15px;
+    }
+
+    .hackathon > div > div {
+        order: unset;
+    }
+}
+
+
