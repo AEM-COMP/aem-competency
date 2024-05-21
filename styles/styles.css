@@ -60,7 +60,7 @@
   --heading-font-size-l: 32px;
   --heading-font-size-m: 24px;
   --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xs: 16px;
   --heading-font-size-xxs: 14px;
 
   /* key units */
@@ -89,7 +89,7 @@ Beyond 1920 the page will be centre aligned
     --heading-font-size-l: 36px;
     --heading-font-size-m: 30px;
     --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;
+    --heading-font-size-xs: 20px;
   }
 }
 

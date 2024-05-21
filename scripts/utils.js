@@ -69,3 +69,22 @@ export function decorateLinkedPictures(container) {
 export function isDesktop() {
   return window.innerWidth >= 1280;
 }
+
+/**
+ * Generate ul list based on page tags
+ *
+ * @param {*} tags
+ * @param {*} prefix
+ */
+export function getTagList(tags, prefix = '') {
+  const tagContainer = document.createElement('ul');
+  tagContainer.className = `${prefix}tags`;
+  const tagsList = JSON.parse(tags);
+  tagsList.forEach((tag) => {
+    const tagItem = document.createElement('li');
+    tagItem.innerHTML = tag;
+    tagContainer.append(tagItem);
+  });
+
+  return tagContainer;
+}

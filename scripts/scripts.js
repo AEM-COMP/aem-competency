@@ -14,6 +14,10 @@ import {
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
+export const CATEGORY_BIGBETS = 'Big Bets';
+export const CATEGORY_FORUM = 'Forum';
+export const CATEGORY_MENTORING = 'Mentoring';
+
 const SECTION_BG_MOBILE = 'bg-mobile';
 const SECTION_BG_DESKTOP = 'bg-desktop';
 
@@ -189,16 +193,22 @@ function loadDelayed() {
 }
 
 /**
- * Fetch filtered search results for bigbets
+ * Fetch filtered search results
+ * @param {*} cat The category filter
+ *   CATEGORY_BIGBETS, CATEGORY_FORUM, CATEGORY_MENTORING
  * @returns List of search results
  */
-export async function fetchSearch() {
+export async function fetchSearch(category = '') {
   window.searchData = window.searchData || {};
   if (Object.keys(window.searchData).length === 0) {
-    const path = '/query-index.json?limit=3&offset=0';
+    const path = '/query-index.json?limit=500&offset=0';
 
     const resp = await fetch(path);
     window.searchData = JSON.parse(await resp.text()).data;
+  }
+
+  if (category !== '') {
+    return window.searchData.filter((el) => el.category === category);
   }
 
   return window.searchData;

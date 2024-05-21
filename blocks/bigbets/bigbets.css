@@ -1,0 +1,42 @@
+.bb-container {
+  display: flex;
+  gap: 32px;
+  color: var(--text-color);
+}
+
+.bb-card {
+  background-color: white;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.bb-card .bb-image {
+  max-height: 250px;
+  overflow: hidden;
+}
+
+.bb-card .bb-image img {
+  transition: transform .2s;
+}
+
+.bb-card .bb-image img:hover {
+  transform: scale(1.1);
+}
+
+.bb-card .bb-content {
+  padding: 16px 16px 0;
+}
+
+.bb-card h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  min-height: 40px;
+}
+
+
+@media (width >= 1280px) {
+  .bb-card .bb-content {
+    padding: 24px 24px 0;
+  }
+}

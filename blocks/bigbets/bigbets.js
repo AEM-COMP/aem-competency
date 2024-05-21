@@ -1,32 +1,59 @@
 import {
   fetchSearch,
+  CATEGORY_BIGBETS,
 } from '../../scripts/scripts.js';
 
-const getListHTML = (row) => 
-              '<a href="#"><picture class="thumbnail"><img src="https://drive.google.com/thumbnail?id=1vTSLiYzLI0YgDkpcm80kW37jwaQjH6SW" alt="A banana that looks like a bird"></picture></a><div class="card-content"><h2>StoryBuilder.AI Acceptance Criteria Generation App</h2><p>An innovative app tailored for agile teams and product owners, powered by GPT-4, designed to revolutionize the creation of Acceptance…</p><div><span>Public</span><span>Owner: Arif Ali</span><span>Status: Completed</span></div><div><span>Generative AI</span><span>Content Management</span><span>Web3</span><span>+9</span></div><a href="#">Join</a></div>';
+import {
+  getTagList,
+} from '../../scripts/utils.js';
+
+const getListHTML = (row) => `
+<div class="bb-image"><img src="${row.image}" alt="${row.title}"/></div>
+<div class="bb-content">
+  <h3>${row.title}</h3>
+  <p class="bb-description">${row.description}</p>
+  <div class="bb-meta">
+    <div class="visibility"><img src="https://main--aem-competency--aem-comp.hlx.live/assets/users/media_15e8d069f911ce3c77611de6ae5818e6445deaf30.png" /> ${row.visibility}</div>
+    <div class="owner">Owner: <img src="https://main--aem-competency--aem-comp.hlx.live/assets/users/media_15e8d069f911ce3c77611de6ae5818e6445deaf30.png"/ > <strong>${row.author}</strong></div>
+    <div class="status">Status: <strong>${row.status}</strong></div>
+  </div>`;
+
+const getButtonHTML = (row) => `<a href="${row.path}" class="button" title="${row.title}">Join</a>`;
 
 async function printList(list) {
-    
-  const div = document.createElement('div');
-  div.classList.add('container');
-  div.innerHTML = '<div class="title"><h2>Big Bets</h2><h1>Technological Innovations Transforming Work Effectiveness</h1></div>';
+  let printCount = 0;
+  const containerDiv = document.createElement('div');
+  containerDiv.classList.add('bb-container');
 
-  const section = document.createElement('section');
-  section.classList.add('cards');
+  const randomList = list.sort(() => 0.5 - Math.random());
 
-  list.forEach((row) => {
-      const article = document.createElement('article');
-      article.classList.add('card');
-      article.innerHTML = getListHTML(row);
-      section.append(article);
+  randomList.every((row) => {
+    if (printCount > 2) {
+      return false;
+    }
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('bb-card');
+
+    cardDiv.innerHTML = getListHTML(row);
+
+    if (row.tags) {
+      cardDiv.append(getTagList(row.tags, 'bb'));
+    }
+    cardDiv.insertAdjacentHTML('beforeend', getButtonHTML(row));
+
+    containerDiv.append(cardDiv);
+    printCount += 1;
+
+    return true;
   });
-  div.append(section);
-  return div;
+
+  return containerDiv;
 }
 
 export default async function decorate(block) {
-  const list = await fetchSearch();
+  const list = await fetchSearch(CATEGORY_BIGBETS);
   block.textContent = '';
+
   const objects = await printList(list);
   block.append(objects);
 }
