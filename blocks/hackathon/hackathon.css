@@ -1,5 +1,5 @@
 main .section.hackathon-container{
-    padding-bottom: 130px;
+    padding-bottom: 160px;
 }
 
 .hackathon {
@@ -12,7 +12,7 @@ main .section.hackathon-container{
 }
 
 .hackathon-text-col p:first-child {
-    color: var(--text-color-red);
+    color: var(--heading-secondary);
 }
 
 
@@ -97,7 +97,7 @@ main .section.hackathon-container{
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  width: 75%;
+  width: 70%;
 }
 
 @media (width >= 1280px) {
@@ -106,7 +106,6 @@ main .section.hackathon-container{
         flex-flow: unset;
         gap: 32px;
     }
-
 
     .hackathon > div > .hackathon-img-col img {
          margin-top: -50px;
