@@ -67,12 +67,10 @@ main .section.hackathon-container{
 
 .hackathon-text-col {
     font-size: var(--body-font-size-xxs);
-    padding: 20px;
     margin-top: 0;
 }
 
 .hackathon > div > .hackathon-img-col {
-    padding: 20px;
     order: 1;
 }
 
