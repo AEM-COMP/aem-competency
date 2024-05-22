@@ -1,0 +1,68 @@
+.tabs .tabs-list {
+  display: flex;
+  gap: 32px;
+  max-width: 100%;
+  overflow-x: auto;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 1280px) { 
+  .tabs .tabs-list {
+    justify-content: flex-end; /* This shifts the tab buttons to the right on large screens */
+  }
+}
+
+.tabs .tabs-list button {
+  flex: 0 0 max-content;
+  margin: 0;
+  background-color: transparent; /* Set background as transparent */
+  border-radius: 0;
+  padding: 0px 1px;
+  text-align: left;
+  transition: color 0.2s;
+  color: var(--heading-primary);
+  font-size: var(--body-font-size-xs);
+}
+
+.section.theme-secondary .tabs .tabs-list button {
+  background-color: var(--body-text-color);
+  color: var(--text-color);
+}
+
+.tabs .tabs-list button[aria-selected="true"] {
+  border-bottom: 2px solid var(--body-text-color);
+  cursor: initial;
+  color: var(--color-text-main);
+}
+
+.section.theme-secondary .tabs .tabs-list button[aria-selected="true"] {
+  border-bottom: 2px solid var(--primary-color);
+  cursor: initial;
+  color: var(--primary-color);
+}
+
+/*.tabs .tabs-list button[aria-selected="false"]:hover,
+.tabs .tabs-list button[aria-selected="false"]:focus {
+}*/
+
+.tabs .tabs-panel {
+  margin-top: -1px;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+.tabs .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs-wrapper {
+  z-index: 12;
+  position: relative;
+  margin-top: 0px;
+}
+
+@media screen and (min-width: 1280px) { 
+  .tabs-wrapper {
+    margin-top: -60px;
+  }
+}
