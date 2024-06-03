@@ -15,7 +15,10 @@ const metaVisibilityHTML = (row) => `<div class="icon-container"><span class="ic
 const metaStatusHTML = (row) => `<div class="status">Status:&nbsp;<strong> ${row.status}</strong></div>`;
 const metaAuthorImgHTML = (row, authorImg) => `<div class="owner">Owner: <img src="${authorImg}" title="${row.author}" width="24" height="24" /> <strong>${row.author}</strong></div>`;
 const metaAuthorHTML = (row) => `<div class="owner">Owner:&nbsp;<strong> ${row.author}</strong></div>`;
-const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
+//const viewAllLinkHTML = (config) => `<a href="${config.viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
+const viewAllLinkHTML = (config, viewAllLink) => `<a href="${viewAllLink}" title="${config.viewAllLabel}" class="button secondary">${config.viewAllLabel}</a>`;
+
+let nextPage = 0;
 
 function createCardImage(src, alt, config) {
   const cardImg = document.createElement('div');
@@ -31,19 +34,59 @@ function createCardImage(src, alt, config) {
   return cardImg;
 }
 
-async function printList(list, placeholder, config) {
+async function printList(list, placeholder, config, page) {
   let printCount = 0;
-  const containerDiv = document.createElement('div');
-  containerDiv.classList.add('bb-container');
-
+  let updatedList;
+  let cardCount = 3;
   const randomList = list.sort(() => 0.5 - Math.random());
 
-  randomList.every((row) => {
-    if (printCount > 2) {
+  const totalItems = list.length;
+  const remain = totalItems - 2;
+  let i = 0;
+  let j = 0;
+  const itemsPerPage = 2;
+  let exitLoop = false;
+  //const page = 3;
+  let offset = (page - 1) * itemsPerPage + 1.
+  
+
+  let start = (page - 1) * itemsPerPage + 1
+  let end = totalItems
+
+  if (itemsPerPage < totalItems) {
+    end = itemsPerPage * page
+    if (end > totalItems) {
+      end = totalItems;
+    }
+  }
+
+  if (end < totalItems) {
+    nextPage = parseInt(page) + 1;
+   
+  } else {
+    nextPage = -1;
+  }
+
+  if (config.type === 'list-view') {
+    updatedList = randomList;
+    cardCount = end;
+  } else {
+    updatedList = list;
+  }
+
+  const containerDiv = document.createElement('div');
+  //containerDiv.classList.add('bb-container');
+  containerDiv.className = `bb-container ${config.type}`;
+
+  updatedList.every((row) => {
+    if (printCount > (cardCount - 1)) {
       return false;
     }
     const cardDiv = document.createElement('div');
-    cardDiv.classList.add('bb-card');
+    //cardDiv.classList.add('bb-card ${config.type}');
+
+    cardDiv.className = `bb-card ${config.type}`;
+    
     cardDiv.append(createCardImage(row.image, row.title, config));
     cardDiv.insertAdjacentHTML('beforeend', getListHTML(row));
 
@@ -94,15 +137,31 @@ export default async function decorate(block) {
   const placeholder = await fetchPlaceholders();
   const config = getConfig(block, placeholder);
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const pageParam = urlParams.get('page');
+  const page = pageParam > 0 ? pageParam : 1; // with parameter, weight is 1. Defaults to 100.
+
   block.textContent = '';
   const list = await fetchSearch(CATEGORY_BIGBETS);
 
-  const objects = await printList(list, placeholder, config);
+  const objects = await printList(list, placeholder, config, page);
   block.append(objects);
 
   const viewAllContainer = document.createElement('div');
   viewAllContainer.className = `view-all ${config.type}`;
-  viewAllContainer.innerHTML = viewAllLinkHTML(config);
 
+  //"?page="
+  let viewAllLink = '';
+  if (config.type === 'list-view') {
+    if (nextPage > 0) {
+      viewAllLink = "?page=" + nextPage;
+    } else {
+      viewAllLink = "#";
+    }
+    viewAllContainer.innerHTML = viewAllLinkHTML(config,viewAllLink);
+  } else {
+    viewAllLink = config.viewalllink;
+    viewAllContainer.innerHTML = viewAllLinkHTML(config, viewAllLink);
+  }
   block.append(viewAllContainer);
 }
