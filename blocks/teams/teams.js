@@ -1,6 +1,6 @@
 import { readBlockConfig, fetchPlaceholders } from '../../scripts/aem.js';
 import { getAuthorImage } from '../../scripts/utils.js';
-import { fetchSearch, CATEGORY_BIGBETS } from '../../scripts/scripts.js';
+import { fetchSearch } from '../../scripts/scripts.js';
 
 const OWNER = 'owner';
 const TAG_COUNT = 5;
@@ -51,7 +51,7 @@ function generateLeadboardList(team, placeholder) {
 }
 
 async function generateTagList(block) {
-  const bigBetsList = await fetchSearch(CATEGORY_BIGBETS);
+  const bigBetsList = await fetchSearch();
   const tags = await bigBetsList.filter((item) => item.path === window.location.pathname);
   let tagListContainer = 'NA';
   if (tags && tags.length && tags[0].tags && tags[0].tags.length) {
