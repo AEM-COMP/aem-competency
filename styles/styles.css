@@ -426,6 +426,18 @@ main .section.highlight {
 @media (width >= 1280px) {
   .theme-two-col-container {
     flex-direction: row;
+    position: relative;
+  }
+
+  .theme-two-col-container::before {
+    content: "";
+    width: 182px;
+    height: 159px;
+    background: url("../icons/triangle.svg") no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: -214px;
+    right: 144px;
   }
 
   .theme-two-col-container .theme-left-container {
