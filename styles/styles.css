@@ -426,17 +426,20 @@ main .section.highlight {
 @media (width >= 1280px) {
   .theme-two-col-container {
     flex-direction: row;
+  }
+
+  .two-column-page {
     position: relative;
   }
 
-  .theme-two-col-container::before {
+  .two-column-page main::before {
     content: "";
     width: 182px;
     height: 159px;
     background: url("../icons/triangle.svg") no-repeat;
     background-size: cover;
     position: absolute;
-    top: -214px;
+    top: 94px;
     right: 144px;
   }
 
