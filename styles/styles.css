@@ -435,6 +435,21 @@ main .section.highlight {
     flex-direction: row;
   }
 
+  .two-column-page {
+    position: relative;
+  }
+
+  .two-column-page main::before {
+    content: "";
+    width: 182px;
+    height: 159px;
+    background: url("../icons/triangle.svg") no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 94px;
+    right: 144px;
+  }
+
   .theme-two-col-container .theme-left-container {
     flex: 2;
   }
