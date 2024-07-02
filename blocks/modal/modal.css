@@ -1,0 +1,67 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal dialog {
+  background-color: var(--background-color);
+  overscroll-behavior: none;
+  border: none;
+  margin: 32px 16px;
+  color: var(--color-text-main);
+}
+
+.modal dialog .modal-content {
+  overflow-y: auto;
+  overscroll-behavior: none;
+  max-height: calc(100dvh - 60px);
+}
+
+.modal.block * {
+  max-width: 84vw;
+}
+
+.modal .close-button {
+  padding: 0;
+  position: absolute;
+  top: 8px;
+  right: 2px;
+  width: 28px;
+  height: 28px;
+  background-color: unset;
+  text-overflow: clip;
+  margin: 0;
+  border: none;
+}
+
+.modal dialog::backdrop {
+  background-color: rgb(0 0 0 / 53%);
+}
+
+.modal .close-button .icon-close {
+  width: 28px;
+  height: 28px;
+}
+
+.modal dialog .section {
+  padding: 0;
+} 
+
+@media (width >= 1280px) {
+  .modal dialog {
+    margin: 48px 40px;
+  }
+
+  .modal dialog .modal-content {
+    max-height: calc(100vh - 90px);
+  }
+
+  .modal .close-button {
+    top: 24px;
+    right: 32px;
+  }
+
+  .modal.block * {
+    max-width: unset;
+  }
+  
+}
