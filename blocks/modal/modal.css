@@ -17,7 +17,11 @@ body.modal-open {
 }
 
 .modal.block * {
-  max-width: calc(var(--desktop-max-width) - 10rem);
+  max-width: calc(var(--desktop-max-width) - 30rem);
+  max-height: -webkit-fill-available;
+  max-height: -moz-available;
+  max-height: fill-available;
+  overscroll-behavior: contain;
 }
 
 .modal .close-button {
